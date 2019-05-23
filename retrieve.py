@@ -8,7 +8,7 @@ def getDateWaitTimes(table, date):
 
 def main():
     table = preprocess.readFile("wait_time_dates")
-    getDateWaitTimes(table, "01/03/2012")
+    getDateWaitTimes(table, "04/02/2015")
 
 main()
 

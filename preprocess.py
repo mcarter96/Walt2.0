@@ -25,8 +25,11 @@ def handleMissingAttributes(table):
             row[2] = row[3]
         if row[3] == '':
             row[3] = row[2]
+    
+def handleNoisyValues(table):
+    for row in table:
         if row[2] >= 240 or row[2] < 0:
-            table.remove(row)
+             table.remove(row)
 
 def statsPerDay(table):
     allStats = []
@@ -53,7 +56,7 @@ def statsPerDay(table):
 def convert2Num(values):
     for i in range(len(values)):
         try:
-            numericValue = float(values[i])
+            numericValue = int(values[i])
             values[i] = numericValue
         except ValueError:
             continue
@@ -67,8 +70,9 @@ def writeData(table, filename):
     outfile.close()
 
 def main():
-    table = readFile("dinosaur")
+    table = readFile("expedition_everest")
     handleMissingAttributes(table)
+    handleNoisyValues(table)
     allStats = statsPerDay(table)
     writeData(allStats, "wait_time_dates.csv")
 
