@@ -1,6 +1,7 @@
 
 
 def main():
+    print("Welcome to the Disney Planning Experience")
     
 
 
